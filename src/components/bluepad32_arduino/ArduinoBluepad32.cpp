@@ -18,7 +18,7 @@
 Bluepad32::Bluepad32() : _prevConnectedGamepads(0), _gamepads(), _onConnect(), _onDisconnect() {}
 
 const char* Bluepad32::firmwareVersion() const {
-    return "Bluepad32 for ESP32 HiGenis v" UNI_VERSION;
+    return "Bluepad32 for Arduino v" UNI_VERSION;
 }
 
 void Bluepad32::update() {
