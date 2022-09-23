@@ -5,7 +5,6 @@
 #define BP32_BLUEPAD32_H
 
 #include "Esp32Bluepad32.h"
-#include "Esp32Console.h"
 #include "Esp32Gamepad.h"
 
 #endif  // BP32_BLUEPAD32_H

@@ -38,6 +38,11 @@ menu "Bluepad32"
             help
                 Targets Unijoysticle 2 / Unijoysticle 2+ devices.
 
+        config BLUEPAD32_PLATFORM_ESP32
+            bool "ESP32"
+            help
+                Hi!Genis ESP32 DevkitC V4.
+
         config BLUEPAD32_PLATFORM_MAKEFILE
             bool "Decided by Makefile"
             help

@@ -34,6 +34,7 @@ set(srcs "uni_bluetooth.c"
          "uni_platform_nina.c"
          "uni_platform_pc_debug.c"
          "uni_platform_unijoysticle.c"
+         "uni_platform_esp32.c"
          "uni_property.c"
          "uni_property_nvs.c"
          "uni_utils.c")
@@ -60,3 +61,6 @@ if(DEFINED ENV{BLUEPAD32_ARDUINO})
     # (As they are C++ symbol, we need to add the C++ mangled names.)
     target_link_libraries(${COMPONENT_LIB} INTERFACE "-u _Z6setupv -u _Z4loopv")
 endif()
+
+
+target_link_libraries(${COMPONENT_LIB} INTERFACE "-u _Z6setupv -u _Z4loopv")

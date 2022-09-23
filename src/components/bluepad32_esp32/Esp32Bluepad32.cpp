@@ -1,30 +1,27 @@
 // Copyright 2021 - 2021, Ricardo Quesada, http://retro.moe
 // SPDX-License-Identifier: Apache-2.0 or LGPL-2.1-or-later
 
-#include "ArduinoBluepad32.h"
+#include "Esp32Bluepad32.h"
 
 #include "sdkconfig.h"
-#ifndef CONFIG_BLUEPAD32_PLATFORM_ARDUINO
-#error "Must only be compiled when using Bluepad32 Arduino platform"
-#endif  // !CONFIG_BLUEPAD32_PLATFORM_ARDUINO
 
-#include <Arduino.h>
+
 #include <inttypes.h>
 #include <uni_bluetooth.h>
 #include <uni_debug.h>
-#include <uni_platform_arduino.h>
+#include <uni_platform_esp32.h>
 #include <uni_version.h>
 
 Bluepad32::Bluepad32() : _prevConnectedGamepads(0), _gamepads(), _onConnect(), _onDisconnect() {}
 
 const char* Bluepad32::firmwareVersion() const {
-    return "Bluepad32 for ESP32 HiGenis v" UNI_VERSION;
+    return "Bluepad32 for Arduino v" UNI_VERSION;
 }
 
 void Bluepad32::update() {
     int connectedGamepads = 0;
     for (int i = 0; i < BP32_MAX_GAMEPADS; i++) {
-        if (arduino_get_gamepad_data(i, &_gamepads[i]._data) == -1)
+        if (esp32_get_gamepad_data(i, &_gamepads[i]._data) == -1)
             continue;
         // Update Idx in case it is the first time to get updated.
         _gamepads[i]._idx = i;

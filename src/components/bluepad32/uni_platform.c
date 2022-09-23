@@ -25,6 +25,7 @@ limitations under the License.
 #include "uni_platform_nina.h"
 #include "uni_platform_pc_debug.h"
 #include "uni_platform_unijoysticle.h"
+#include "uni_platform_esp32.h"
 
 // Platform "object"
 static struct uni_platform* _platform;
@@ -43,6 +44,8 @@ void uni_platform_init(int argc, const char** argv) {
     _platform = uni_platform_mightymiggy_create();
 #elif defined(CONFIG_BLUEPAD32_PLATFORM_NINA)
     _platform = uni_platform_nina_create();
+#elif defined(CONFIG_BLUEPAD32_PLATFORM_ESP32)
+    _platform = uni_platform_esp32_create();    
 #elif defined(CONFIG_BLUEPAD32_PLATFORM_ARDUINO)
     _platform = uni_platform_arduino_create();
 #else

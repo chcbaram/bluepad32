@@ -7,8 +7,4 @@
 # please read the ESP-IDF documents if you need to do this.
 #
 
-ifndef CONFIG_BLUEPAD32_PLATFORM_ESP32
-
-COMPONENT_OBJEXCLUDE += esp32_main.o
-
-endif # CONFIG_BLUEPAD32_PLATFORM_ESP32
+$(call compile_only_if,$(CONFIG_BLUEPAD32_PLATFORM_ESP32), Esp32Bluepad32.o Esp32Console.o Esp32Gamepad.o)

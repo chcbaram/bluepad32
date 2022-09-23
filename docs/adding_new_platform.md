@@ -107,6 +107,8 @@ void uni_platform_init(int argc, const char** argv) {
     _platform = uni_platform_nina_create();
 #elif defined(CONFIG_BLUEPAD32_PLATFORM_ARDUINO)
     _platform = uni_platform_arduino_create();
+#elif defined(CONFIG_BLUEPAD32_PLATFORM_ESP32)
+    _platform = uni_platform_esp32_create();
 #elif defined(CONFIG_BLUEPAD32_PLATFORM_YOURPLATFORM)
     // Here goes your code
     _platform = uni_platform_yourplatform_create();
